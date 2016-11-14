@@ -59,7 +59,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void deleteUserById(int userId) {
-        userDao.deleteUserById(userId);
+        int count = userDao.deleteById(userId);
+        if (count <= 0) {
+            throw new ServiceException("Delete user by id failed. caused by: userId =  " + userId);
+        }
     }
 
     @Override

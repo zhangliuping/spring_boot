@@ -36,7 +36,7 @@ public interface UserDao {
      * @param userId
      * @return
      */
-    public int deleteUserById(int userId);
+    public int deleteById(int userId);
 
     /**
      * Delete all users

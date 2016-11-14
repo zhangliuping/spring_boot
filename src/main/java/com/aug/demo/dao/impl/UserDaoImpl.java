@@ -24,11 +24,6 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public User insert(User user) {
-        Object[] objects = new Object[] { user.getName(), user.getPassword(), user.getEmail(), user.getAge(),
-                user.getGender(), user.getCreateTime() };
-        jdbcTemplate.update(
-                "INSERT INTO user(name, password, email, age, gender, create_time) VALUES(?, ?, ?, ?, ?, ?)", objects);
-
         KeyHolder keyHolder = new GeneratedKeyHolder();
         jdbcTemplate.update(new PreparedStatementCreator() {
 
@@ -62,7 +57,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public int deleteUserById(int userId) {
+    public int deleteById(int userId) {
         return jdbcTemplate.update("DELETE FROM user WHERE id = ?", userId);
     }
 
