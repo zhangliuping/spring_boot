@@ -1,6 +1,10 @@
 package com.aug.demo.model;
 
-public class Demo {
+import java.io.Serializable;
+
+public class Demo implements Serializable {
+
+    private static final long serialVersionUID = 5639305293899443600L;
 
     private int id;
     private String name;
